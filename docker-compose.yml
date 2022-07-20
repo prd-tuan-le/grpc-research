@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: "swagger-ui"
+    ports:
+      - "8082:8080"
+    volumes:
+      - ./docs/swagger/api/v1/:/usr/share/nginx/html/docs
+    environment:
+      URLS: >
+        [{name: "calculator", url: "docs/calculator.swagger.json"},
+         {name: "greet", url: "docs/greet.swagger.json"}]
