@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package api.v1;
+option go_package = "go/api/v1";
+
+// The greeting service definition.
+service GreeterService {
+	// Unary
+	rpc SayHello (HelloRequest) returns (HelloResponse);
+
+	// Server Streaming
+	rpc ParrotSaysHello (HelloRequest) returns (stream HelloResponse);
+
+	// Client Streaming
+	rpc ChattyClientSaysHello (stream HelloRequest) returns (DelayedReply);
+
+	// Both Streaming
+	rpc InteractingHello (stream HelloRequest) returns (stream HelloResponse);
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+  string greeting = 2;
+}
+
+// The response message containing the greetings.
+message HelloResponse {
+  string message = 1;
+}
+
+message DelayedReply {
+	string message = 1;
+	repeated HelloRequest request = 2;
+}

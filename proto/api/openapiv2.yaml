@@ -1,0 +1,56 @@
+# https://cloud.google.com/api-gateway/docs/grpc-service-config
+# https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/endpoints/bookstore-grpc
+# https://editor.swagger.io/
+type: google.api.Service
+config_version: 3
+
+name: api.paradox.ai/v1
+title: GRPC Demo API
+
+http:
+  rules:
+    ## Greetings
+    - selector: api.v1.GreeterService.SayHello
+      post: /v1/greet/hello
+      body: "*"
+
+    - selector: api.v1.GreeterService.SayHello
+      get: /v1/greet/hello
+
+    - selector: api.v1.GreeterService.ParrotSaysHello
+      get: /v1/greet/parrot
+
+    - selector: api.v1.GreeterService.ChattyClientSaysHello
+      get: /v1/greet/chatty
+
+    - selector: api.v1.GreeterService.InteractingHello
+      get: /v1/greet/interacting
+
+    ## Calculator
+    - selector: api.v1.CalculatorService.Sum
+      get: /v1/calculator/sum
+
+    - selector: api.v1.CalculatorService.Sum
+      post: /v1/calculator/sum
+      body: "*"
+
+    - selector: api.v1.CalculatorService.Sub
+      get: /v1/calculator/sub
+
+    - selector: api.v1.CalculatorService.Sub
+      post: /v1/calculator/sub
+      body: "*"
+
+    - selector: api.v1.CalculatorService.Div
+      get: /v1/calculator/div
+
+    - selector: api.v1.CalculatorService.Div
+      post: /v1/calculator/div
+      body: "*"
+
+    - selector: api.v1.CalculatorService.Mul
+      get: /v1/calculator/mul
+
+    - selector: api.v1.CalculatorService.Mul
+      post: /v1/calculator/mul
+      body: "*"

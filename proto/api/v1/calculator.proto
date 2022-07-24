@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package api.v1;
+option go_package = "go/api/v1";
+
+service CalculatorService {
+    rpc Sum(ComputeRequest) returns (ComputeResponse);
+    rpc Sub(ComputeRequest) returns (ComputeResponse);
+    rpc Div(ComputeRequest) returns (ComputeResponse);
+    rpc Mul(ComputeRequest) returns (ComputeResponse);
+}
+
+message ComputeRequest {
+    float num1 = 1;
+    float num2 = 2;
+}
+
+message ComputeResponse {
+    float result = 1;
+}
