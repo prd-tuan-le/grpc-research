@@ -22,9 +22,13 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CalculatorServiceClient interface {
+	// Unary
 	Sum(ctx context.Context, in *ComputeRequest, opts ...grpc.CallOption) (*ComputeResponse, error)
+	// Unary
 	Sub(ctx context.Context, in *ComputeRequest, opts ...grpc.CallOption) (*ComputeResponse, error)
+	// Unary
 	Div(ctx context.Context, in *ComputeRequest, opts ...grpc.CallOption) (*ComputeResponse, error)
+	// Unary
 	Mul(ctx context.Context, in *ComputeRequest, opts ...grpc.CallOption) (*ComputeResponse, error)
 }
 
@@ -76,9 +80,13 @@ func (c *calculatorServiceClient) Mul(ctx context.Context, in *ComputeRequest, o
 // All implementations should embed UnimplementedCalculatorServiceServer
 // for forward compatibility
 type CalculatorServiceServer interface {
+	// Unary
 	Sum(context.Context, *ComputeRequest) (*ComputeResponse, error)
+	// Unary
 	Sub(context.Context, *ComputeRequest) (*ComputeResponse, error)
+	// Unary
 	Div(context.Context, *ComputeRequest) (*ComputeResponse, error)
+	// Unary
 	Mul(context.Context, *ComputeRequest) (*ComputeResponse, error)
 }
 

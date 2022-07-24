@@ -20,12 +20,6 @@ http:
     - selector: api.v1.GreeterService.ParrotSaysHello
       get: /v1/greet/parrot
 
-    - selector: api.v1.GreeterService.ChattyClientSaysHello
-      get: /v1/greet/chatty
-
-    - selector: api.v1.GreeterService.InteractingHello
-      get: /v1/greet/interacting
-
     ## Calculator
     - selector: api.v1.CalculatorService.Sum
       get: /v1/calculator/sum
