@@ -33,15 +33,7 @@ swagger-ui:
 	@docker-compose up -d
 
 deps:
-	@go get github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway
-	@go get github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
-	@go get google.golang.org/protobuf/cmd/protoc-gen-go
-	@go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
-
-	@go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway
-	@go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
-	@go install google.golang.org/protobuf/cmd/protoc-gen-go
-	@go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+	@cd src/go; bash ../../install_go_deps.sh
 	@wget https://github.com/grpc/grpc-web/releases/download/1.3.1/protoc-gen-grpc-web-1.3.1-linux-x86_64 \
 		-O ~/.local/bin/protoc-gen-grpc-web-1.3.1-linux-x86_64 \
 		&& chmod +x ~/.local/bin/protoc-gen-grpc-web-1.3.1-linux-x86_64
