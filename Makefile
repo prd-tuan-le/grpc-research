@@ -12,6 +12,9 @@ lint:
 mod_update:
 	@buf mod update proto
 
+python-deps:
+	@cd src/python && pip install -r requirements.txt
+
 gen:
 	@buf generate
 
