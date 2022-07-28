@@ -31,6 +31,10 @@ swagger:
 	 rm v$(SWAGGER_VERSION).zip
 
 start-swagger-ui:
+	for file in $$(ls ./docs/swagger/api/v1); do \
+		file_path=./docs/swagger/api/v1/$${file}; \
+		cat $${file_path} | jq -M '. += {"host":"localhost:${SWAGGER_UI_PORT}"}' | tee $${file_path} >/dev/null; \
+	done
 	@docker-compose up -d
 	@echo Check out swagger-ui at http://localhost:${SWAGGER_UI_PORT}
 

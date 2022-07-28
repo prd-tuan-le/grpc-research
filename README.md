@@ -13,7 +13,7 @@ make python-deps
 # Create OpenSSL Certificate
 make ssl
 
-# Update do.mod
+# Update go.mod
 make mod_update
 
 # Generate GRPC / GRPC-gateway / GRPC-web from .proto
